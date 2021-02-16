@@ -6,12 +6,13 @@ import { AnyStyledComponent } from "styled-components";
 import {
   ControlWrapper,
   StyledInputGroup,
-  StyledPropertyPaneButton,
+  StyledPropertyPaneButtonHolder,
 } from "./StyledControls";
 
 import { DropDownOptionWithKey } from "./OptionControl";
 import { DropdownOption } from "widgets/DropdownWidget";
 import { generateReactKey } from "utils/generators";
+import Button, { Category, Size } from "components/ads/Button";
 
 function updateOptionLabel<T>(
   options: Array<T>,
@@ -173,13 +174,26 @@ export function KeyValueComponent(props: KeyValueComponentProps) {
           </StyledOptionControlWrapper>
         );
       })}
-      <StyledPropertyPaneButton
+
+      {/* <StyledPropertyPaneButton
         text={props.addLabel || "Option"}
         icon={"plus"}
         color={"#FFFFFF"}
         minimal={true}
         onClick={addPair}
-      />
+      /> */}
+
+      <StyledPropertyPaneButtonHolder theme="DARK">
+        <Button
+          tag="button"
+          type="button"
+          text={props.addLabel || "Option"}
+          onClick={addPair}
+          size={Size.medium}
+          category={Category.tertiary}
+          className="custom-button-class"
+        />
+      </StyledPropertyPaneButtonHolder>
     </React.Fragment>
   );
 }

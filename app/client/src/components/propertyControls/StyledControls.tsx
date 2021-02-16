@@ -335,3 +335,30 @@ export const FieldWrapper = styled.div`
   position: relative;
   width: 100%;
 `;
+
+export const StyledPropertyPaneButtonHolder = styled.div<{
+  theme: "DARK" | "LIGHT";
+}>`
+  &&&& {
+    margin-top: 4px;
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+
+    .custom-button-class {
+      ${(props) =>
+        props.theme === "DARK"
+          ? `border-color: #4b4848;
+          background-color: #4b4848;
+          color: #ffffff;`
+          : `border-color: #d4d4d4;
+          background-color: #d4d4d4;
+          color: #090707;`}
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+`;
